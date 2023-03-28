@@ -7,14 +7,14 @@ import ViewEmail from './ViewEmail';
 const MainPage = () => {
   return (
     <div>
-      <Grid container lg={12} justifyContent="center" className="m-auto">
+      <Grid container item lg={12} style={{ height: '100vh' }} >
         <Grid item lg={2} sx={12} sm={12} md={2} style={{ border: '1px' }}>
           <ManuItem />
         </Grid>
-        <Grid item lg={4} sx={12} sm={12} md={4} style={{ background: 'blue' }}>
+        <Grid item lg={4} sx={12} sm={12} md={4} >
           <Email />
         </Grid>
-        <Grid item lg={6} sx={12} sm={12} md={6} style={{ background: 'secondry' }}>
+        <Grid item lg={6} sx={12} sm={12} md={6} >
           <ViewEmail />
         </Grid>
       </Grid>
