@@ -1,0 +1,39 @@
+.main{
+margin: 10px;
+padding: 10px;
+
+}
+.heading{
+    border-radius: 5px;
+    border: 1px solid black;
+    justify-content: start;
+    align-items: start;
+    padding-top: 0%;
+   
+    /* margin: 6px; */
+}
+.view-email{
+    /* margin:6px; */
+    /* padding:10px; */
+    border-radius: 5px;
+    border: 1px solid black;
+   height: 100vh;
+    /* justify-content: start;
+    align-items: start; */
+    margin-top: 5px;
+}
+.veiwmail-heading{
+justify-content: start;
+align-items: start !important;
+margin-top: 20px;
+background-color: aqua;
+}
+.veiwmail-name{
+ justify-content: flex-start !important;
+ align-items: start !important;
+ margin-top: 20px;
+}
+/* .css-n54ydy-MuiGrid-root {
+  margin-top: 10% !important;
+    margin-left: 12% !important;
+} */

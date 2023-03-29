@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 //axoi
 import axios from 'axios';
 //mui 
-
 import Card from '@mui/material/Card';
-
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { Divider, Grid } from '@mui/material';
 import { deepOrange } from '@mui/material/colors';
+import Checkbox from '@mui/material/Checkbox';
 
 
 
 const Email = () => {
   const [data, setData] = useState([]);
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMDIxNDQ0LCJpYXQiOjE2Nzk5MzUwNDMsImp0aSI6IjA2ZDNkZTQ4ZTg5NTQ5ZmJhYWEzMjQ0NzU3NzIyN2NiIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.oVWfFhQ-xJ3Kk7TZNNSuMKy3Sb9cGKTHFin4aA7-dVg'
   const header = {
     headers: {
@@ -45,19 +45,20 @@ const Email = () => {
 
   return (
 
-    <div>
-      {
+    <div className='emails'>
+      <Checkbox {...label} />
+      <Divider />
+
+
+      {data &&
         data.map((item, index) => (
-          < Card sx={{ minWidth: 275 }} sm={12} lg={12} onClick={handleClick} key={index}>
+          < Card hoverable sx={{ minWidth: 275 }} sm={12} lg={12} onClick={handleClick} key={index} className="email-card">
             <CardContent>
               <Grid lg={12} container>
 
                 <Grid lg={4}>
                   <Stack direction="row" spacing={2}>
-                    {/* <Avatar>H</Avatar> */}
                     <Avatar {...stringAvatar(`${item.details.from_email.name}`)} sx={{ bgcolor: deepOrange[500] }} />
-                    {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar> */}
-
                   </Stack>
                 </Grid>
                 <Grid lg={4}>
@@ -77,10 +78,11 @@ const Email = () => {
               </Grid>
             </CardContent>
 
-            <Divider />
+            {/* <Divider /> */}
           </Card>
         ))
       }
+
     </div >
   )
 };
