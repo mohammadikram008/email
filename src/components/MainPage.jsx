@@ -7,7 +7,7 @@ import ViewEmail from "./ViewEmail";
 const MainPage = () => {
   return (
     <div>
-      <Grid container item lg={12} style={{ height: "100vh" }}>
+      <Grid container item lg={12} spacing={2} sx={{ m: 0 }}>
         <Grid item lg={2} sx={12} sm={12} md={2}>
           <MenuItem />
         </Grid>
