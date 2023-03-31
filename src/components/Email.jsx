@@ -65,20 +65,13 @@ const Email = () => {
   ];
   return (
     <Box mt={1} sx={{
-      "--Grid-borderWidth": "1px",
+      
       borderRadius: "4px",
-      borderTop: "var(--Grid-borderWidth) solid",
-      borderLeft: "var(--Grid-borderWidth) solid",
-      borderRight: "var(--Grid-borderWidth) solid",
-      borderBottom: "var(--Grid-borderWidth) solid",
+      border: "1px solid",
       borderColor: "divider",
-      "& > div": {
-        borderRight: "var(--Grid-borderWidth) solid",
-        borderBottom: "var(--Grid-borderWidth) solid",
-        borderColor: "divider",
-      },
+      height: "90vh"
     }}
-      style={{ height: "90vh" }}
+     
     >
       <Checkbox {...label} />
       <Divider />
@@ -93,45 +86,45 @@ const Email = () => {
           alldata.map((item, index) => (
             <Card
               sx={{
+                border: "1px solid",
+                borderColor: "divider",
                 ':hover': {
                   bgcolor: indigo[100],
                 },
               }}
-              style={{ width: "100%" }}
+              style={{ width: "100%" ,height:100}}
               sm={12}
               lg={12}
               onClick={handleClick}
               key={index}
-              className="email-card"
+
             >
               <CardContent>
                 <Grid lg={12} container>
                   <Grid lg={2}>
-                    <Stack direction="row" >
+
                       <Avatar
                         // {...stringAvatar(`${item.details.from_email.name}`)}
                         {...stringAvatar(`${item.name}`)}
-                        sx={{ bgcolor: indigo[500] }}
+                        sx={{ bgcolor: indigo[800] }}
                       />
-                    </Stack>
+
                   </Grid>
                   <Grid lg={10}>
-                    <Stack direction="column" >
-                      <Typography variant="h6" component="div">
+                      <Typography variant="h6">
                         {/* {item.details.from_email.name} */}
                         {item.name}
                       </Typography>
-                    </Stack>
-                    <Stack direction="row" spacing={4} sx={{ color: indigo[500] }}>
+                    <Stack direction="row" spacing={16} sx={{ color: indigo[800] }}>
                       <Typography variant="body2">
                         {item.subject}
                       </Typography>
-                      <Typography sx={{ mb: 1.5, color: indigo[500] }} color="text.secondary">
+                      <Typography sx={{ mb: 1.5, color: indigo[800] }} color="text.secondary">
                         {/* {item.sent_date_time} */}
                         {item.date}
                       </Typography>
                     </Stack>
-                    <Typography variant="h8" component="div">
+                    <Typography variant="h8" >
                       {item.contain}
                     </Typography>
                   </Grid>

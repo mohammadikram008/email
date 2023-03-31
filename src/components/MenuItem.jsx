@@ -16,7 +16,7 @@ import TreeItem, { treeItemClasses } from "@mui/lab/TreeItem";
 import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-
+import { lightBlue } from "@mui/material/colors";
 const MenuItem = () => {
   const StyledTreeItemRoot = styled(TreeItem)(({ theme }) => ({
     color: theme.palette.text.secondary,
@@ -30,7 +30,7 @@ const MenuItem = () => {
         fontWeight: theme.typography.fontWeightRegular,
       },
       "&:hover": {
-        backgroundColor: theme.palette.action.hover,
+        backgroundColor: lightBlue ,
       },
       "&.Mui-focused, &.Mui-selected, &.Mui-selected.Mui-focused": {
         backgroundColor: `var(--tree-view-bg-color, ${theme.palette.action.selected})`,
@@ -92,14 +92,11 @@ const MenuItem = () => {
   };
   return (
     <Box mt={1} sx={{
-      "--Grid-borderWidth": "1px",
+
       borderRadius: "4px",
       flexGrow: 1,
       p: 2,
-      borderTop: "var(--Grid-borderWidth) solid",
-      borderLeft: "var(--Grid-borderWidth) solid",
-      borderRight: "var(--Grid-borderWidth) solid",
-      borderBottom: "var(--Grid-borderWidth) solid",
+      border: "1px solid",
       borderColor: "divider",
     }}
       style={{ height: "85vh" }}>
@@ -109,7 +106,7 @@ const MenuItem = () => {
         md={12}
         sm={12}
         xs={12}
-        spacing={2}
+        // spacing={4}
       >
         <TreeView
           aria-label="gmail"
@@ -119,35 +116,39 @@ const MenuItem = () => {
           // defaultEndIcon={<div style={{ width: 5 }} />}
           sx={{ flexGrow: 1, maxWidth: 220, }}
         >
-          <Button variant="outlined" style={{ width: "100%" }}>
+         
+            <Button variant="outlined" sx={{ justifyContent: "center", alignItems: "center", width: "100%" }} >
             <AddOutlinedIcon /> New Mail
           </Button>
+       <Grid container spacing={3} lg={12} mt={2}>
+
           <StyledTreeItem
             nodeId="1"
             labelInfo="3,566"
             labelText="Inbox"
             labelIcon={InboxIcon}
-          />
+            />
           <StyledTreeItem
             nodeId="2"
             labelText="Starred"
             labelIcon={StarOutlineIcon}
-          />
+            />
           <StyledTreeItem
             nodeId="3"
             labelText="SendItem"
             labelIcon={SendIcon}
-          />
+            />
           <StyledTreeItem
             nodeId="4"
             labelText="Draft"
             labelIcon={FileOpenOutlinedIcon}
-          />
+            />
           <StyledTreeItem
             nodeId="5"
             labelText="Junk mail"
             labelIcon={FolderOutlinedIcon}
-          />
+            />
+            </Grid>
         </TreeView>
       </Grid>
     </Box>
