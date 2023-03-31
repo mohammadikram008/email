@@ -3,28 +3,34 @@ module.exports = {
         browser: true,
         es2021: true,
         jest: true,
+        es6: true
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+    extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
 
     overrides: [],
     parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
+        ecmaVersion: 8,
+        sourceType: "module",
+        ecmaFeatures: {
+            classes: true,
+            jsx: true
+        }
     },
-
-    plugins: ['react', 'prettier', 'flowtype'],
+    plugins: ["react", "prettier", "flowtype"],
     rules: {
-        'react/react-in-jsx-scope': 'off',
-        'prettier/prettier': [
-            'error',
+        "no-console": 1, // Means warning
+        "prettier/prettier": 2,
+        "react/react-in-jsx-scope": "off"
+        // "prettier/prettier": [
+        //   "error",
 
-            {
-                // endOfLine: "off",
-                // printWidth: 160,
-                singleQuote: false,
-                endOfLine: 'auto',
-                tabWidth: 4,
-            },
-        ],
-    },
+        //   {
+        //     // endOfLine: "off",
+        //     printWidth: 160,
+        //     singleQuote: false,
+        //     endOfLine: "auto",
+        //     tabWidth: 4
+        //   }
+        // ]
+    }
 };
