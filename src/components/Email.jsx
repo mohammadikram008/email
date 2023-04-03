@@ -10,9 +10,13 @@ import { Divider, Grid } from "@mui/material";
 import { indigo } from "@mui/material/colors";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import Paper from "@mui/material/Paper";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ViewEmail from "./ViewEmail";
 const Email = () => {
     const [data, setData] = useState([]);
+    const [singledata, setSingledata] = useState([]);
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
     const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwNjA4MjE1LCJpYXQiOjE2ODA1MTQyODAsImp0aSI6IjkxZjQ3YTA3MDQwYzRmZTE5ZjZjZWI3OGVhMTQ2NjkwIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.gEY2TTPtF0AxLC7kuTPIA_6iyNJDhjz-2wXkhyca3ZA";
@@ -26,8 +30,9 @@ const Email = () => {
             children: `${name.split(" ")[0][0]}`
         };
     }
-    const handleClick = () => {
-        // console.log("click");
+    const handleClick = (prop) => {
+        console.log("prop", prop);
+        setSingledata(prop);
     };
     useEffect(() => {
         axios
@@ -40,32 +45,32 @@ const Email = () => {
                 console.log("Error", error);
             });
     }, []);
-    const alldata = [
-        {
-            name: "Bitpay",
-            subject: "Join KCGI To Earn Huge..",
-            contain: "Dear Global bitplayers,We are Delig...",
-            date: "02/02/2023"
-        },
-        {
-            name: "Mexi",
-            subject: "Experience futures tech...",
-            contain: "Dear Global bitplayers,We are Delig...",
-            date: "02/02/2023"
-        },
-        {
-            name: "Bitpay",
-            subject: "Join KCGI To Earn Huge..",
-            contain: "Dear Global bitplayers,We are Delig...",
-            date: "02/02/2023"
-        },
-        {
-            name: "Mexi",
-            subject: "Experience futures tech...",
-            contain: "Dear Global bitplayers,We are Delig...",
-            date: "02/02/2023"
-        }
-    ];
+    // const alldata = [
+    //     {
+    //         name: "Bitpay",
+    //         subject: "Join KCGI To Earn Huge..",
+    //         contain: "Dear Global bitplayers,We are Delig...",
+    //         date: "02/02/2023"
+    //     },
+    //     {
+    //         name: "Mexi",
+    //         subject: "Experience futures tech...",
+    //         contain: "Dear Global bitplayers,We are Delig...",
+    //         date: "02/02/2023"
+    //     },
+    //     {
+    //         name: "Bitpay",
+    //         subject: "Join KCGI To Earn Huge..",
+    //         contain: "Dear Global bitplayers,We are Delig...",
+    //         date: "02/02/2023"
+    //     },
+    //     {
+    //         name: "Mexi",
+    //         subject: "Experience futures tech...",
+    //         contain: "Dear Global bitplayers,We are Delig...",
+    //         date: "02/02/2023"
+    //     }
+    // ];
     return (
         <Box
             mt={1}
@@ -88,93 +93,97 @@ const Email = () => {
                 <Divider />
             </Box>
             <Grid container lg={12} md={12} sm={12} xs={12}>
-                {data &&
-                    data.map((item, index) => (
-                        <Card
-                            sx={{
-                                border: "1px solid",
-                                m: 0,
-                                p: 0,
-                                width: "100%",
-                                height: "80%",
-                                borderRadius: "0",
-                                borderColor: "divider",
-                                ":hover": {
-                                    bgcolor: indigo[100]
-                                }
-                            }}
-                            sm={12}
-                            lg={12}
-                            md={12}
-                            onClick={handleClick}
-                            key={index}
-                        >
-                            <CardContent sx={{ p: 0, m: 1 }}>
-                                <Grid lg={12} container>
-                                    <Grid
-                                        lg={2}
-                                        md={12}
-                                        sm={12}
-                                        sx={{
-                                            display: "flex",
-                                            justifyContent: "center",
-                                            alignItems: "center"
-                                        }}
-                                    >
-                                        <Avatar
-                                            {...stringAvatar(
-                                                `${item.details.from_email.name}`
-                                            )}
-                                            // {...stringAvatar(`${item.name}`)}
-                                            sx={{ bgcolor: indigo[800] }}
-                                        />
-                                    </Grid>
-                                    <Grid
-                                        lg={10}
-                                        md={12}
-                                        sm={12}
-                                        sx={{ m: 0, p: 0 }}
-                                    >
-                                        <Typography
-                                            variant="h6"
-                                            sx={{
-                                                fontSize: "0.875rem",
-                                                fontWeight: "700"
-                                            }}
-                                        >
-                                            {item.details.from_email.name}
-                                            {/* {item.name} */}
-                                        </Typography>
-                                        <Stack
-                                            direction="row"
-                                            spacing={2}
-                                            sx={{
-                                                color: indigo[800],
-                                                justifyContent: "space-between",
-                                                fontSize: "0.875rem"
-                                            }}
-                                        >
-                                            <Typography variant="body2">
-                                                {item.subject}
-                                            </Typography>
-                                            <Typography
+                <Paper sx={{ height: "85vh", overflow: "scroll", overflowX: "hidden" }}>
+                    <List>
+                        {data &&
+                            data.map((item, index) => (
+                                <Card
+                                    sx={{
+                                        border: "1px solid",
+                                        m: 0,
+                                        p: 0,
+                                        width: "100%",
+                                        height: "80%",
+                                        borderRadius: "0",
+                                        borderColor: "divider",
+                                        ":hover": {
+                                            bgcolor: indigo[100]
+                                        }
+                                    }}
+                                    sm={12}
+                                    lg={12}
+                                    md={12}
+                                    onClick={() => handleClick(item)}
+                                    key={index}
+                                >
+                                    <CardContent sx={{ p: 0, m: 1 }}>
+                                        <Grid lg={12} container>
+                                            <Grid
+                                                lg={2}
+                                                md={12}
+                                                sm={12}
                                                 sx={{
-                                                    color: indigo[800]
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "center"
                                                 }}
-                                                color="text.secondary"
                                             >
-                                                {item.sent_date_time}
-                                                {/* {item.date} */}
-                                            </Typography>
-                                        </Stack>
-                                        <Typography variant="h8">
-                                            {item.contain}
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </CardContent>
-                        </Card>
-                    ))}
+                                                <Avatar
+                                                    {...stringAvatar(
+                                                        `${item.details.from_email.name}`
+                                                    )}
+                                                    sx={{ bgcolor: indigo[800] }}
+                                                // {...stringAvatar(`${item.name}`)}
+                                                />
+                                            </Grid>
+                                            <Grid
+                                                lg={10}
+                                                md={12}
+                                                sm={12}
+                                                sx={{ m: 0, p: 0 }}
+                                            >
+                                                <Typography
+                                                    variant="h6"
+                                                    sx={{
+                                                        fontSize: "0.875rem",
+                                                        fontWeight: "700"
+                                                    }}
+                                                >
+                                                    {item.details.from_email.name}
+                                                    {/* {item.name} */}
+                                                </Typography>
+                                                <Stack
+                                                    direction="row"
+                                                    spacing={2}
+                                                    sx={{
+                                                        color: indigo[800],
+                                                        justifyContent: "space-between",
+                                                        fontSize: "0.875rem"
+                                                    }}
+                                                >
+                                                    <Typography variant="body2">
+                                                        {item.subject}
+                                                    </Typography>
+                                                    <Typography
+                                                        sx={{
+                                                            color: indigo[800]
+                                                        }}
+                                                        color="text.secondary"
+                                                    >
+                                                        {item.sent_date_time}
+                                                        {/* {item.date} */}
+                                                    </Typography>
+                                                </Stack>
+                                                <Typography variant="h8">
+                                                    {item.contain}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                    </List>
+                </Paper>
             </Grid>
         </Box>
     );
