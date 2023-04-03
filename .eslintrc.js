@@ -3,7 +3,7 @@ module.exports = {
         browser: true,
         es2021: true,
         jest: true,
-        es6: true
+        es6: true,
     },
     extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
 
@@ -13,10 +13,10 @@ module.exports = {
         sourceType: "module",
         ecmaFeatures: {
             classes: true,
-            jsx: true
-        }
+            jsx: true,
+        },
     },
-    plugins: ["react", "prettier", "flowtype"],
+    plugins: ["react", "prettier"],
     rules: {
         "no-console": 1, // Means warning
         "prettier/prettier": 2,
@@ -24,9 +24,9 @@ module.exports = {
         "prettier/prettier": [
             "error",
             {
-                endOfLine: "auto"
-            }
-        ]
+                endOfLine: "auto",
+            },
+        ],
         // "prettier/prettier": [
         //   "error",
 
@@ -38,5 +38,5 @@ module.exports = {
         //     tabWidth: 4
         //   }
         // ]
-    }
+    },
 };

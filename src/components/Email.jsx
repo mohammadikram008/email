@@ -25,7 +25,7 @@ const Email = () => {
         };
     }
     const handleClick = () => {
-        console.log("click");
+        // console.log("click");
     };
     // useEffect(() => {
     //   axios
@@ -71,7 +71,7 @@ const Email = () => {
                 borderRadius: "4px",
                 border: "1px solid",
                 borderColor: "divider",
-                height: "90vh"
+                height: "85vh"
             }}
         >
             <Box
@@ -94,7 +94,7 @@ const Email = () => {
                                 m: 0,
                                 p: 0,
                                 width: "100%",
-                                height: 80,
+                                height: "80%",
                                 borderRadius: "0",
                                 borderColor: "divider",
                                 ":hover": {
@@ -103,6 +103,7 @@ const Email = () => {
                             }}
                             sm={12}
                             lg={12}
+                            md={12}
                             onClick={handleClick}
                             key={index}
                         >

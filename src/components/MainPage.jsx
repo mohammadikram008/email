@@ -11,7 +11,7 @@ const MainPage = () => {
                 <Grid item lg={2} sx={12} sm={12} md={4}>
                     <MenuItem />
                 </Grid>
-                <Grid item lg={4} sx={12} sm={12} md={6}>
+                <Grid item lg={4} sx={12} sm={12} md={8}>
                     <Email />
                 </Grid>
                 <Grid item lg={6} sx={12} sm={12} md={12}>
