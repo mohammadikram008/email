@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 //mui
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -11,14 +12,15 @@ import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 const Email = () => {
+    const [data, setData] = useState([]);
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
-    // const token =
-    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwMDIxNDQ0LCJpYXQiOjE2Nzk5MzUwNDMsImp0aSI6IjA2ZDNkZTQ4ZTg5NTQ5ZmJhYWEzMjQ0NzU3NzIyN2NiIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.oVWfFhQ-xJ3Kk7TZNNSuMKy3Sb9cGKTHFin4aA7-dVg";
-    // const header = {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // };
+    const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwNjA4MjE1LCJpYXQiOjE2ODA1MTQyODAsImp0aSI6IjkxZjQ3YTA3MDQwYzRmZTE5ZjZjZWI3OGVhMTQ2NjkwIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.gEY2TTPtF0AxLC7kuTPIA_6iyNJDhjz-2wXkhyca3ZA";
+    const header = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
     function stringAvatar(name) {
         return {
             children: `${name.split(" ")[0][0]}`
@@ -27,17 +29,17 @@ const Email = () => {
     const handleClick = () => {
         // console.log("click");
     };
-    // useEffect(() => {
-    //   axios
-    //     .get(`https://sandbox.notification.pullstream.com/api/`, header)
-    //     .then((res) => {
-    //       console.log("ResDATA", res.data.results);
-    //       setData(res.data.results);
-    //     })
-    //     .catch((error) => {
-    //       console.log("Error", error);
-    //     });
-    // }, []);
+    useEffect(() => {
+        axios
+            .get(`https://sandbox.notification.pullstream.com/api/`, header)
+            .then((res) => {
+                console.log("ResDATA", res.data.results);
+                setData(res.data.results);
+            })
+            .catch((error) => {
+                console.log("Error", error);
+            });
+    }, []);
     const alldata = [
         {
             name: "Bitpay",
@@ -86,8 +88,8 @@ const Email = () => {
                 <Divider />
             </Box>
             <Grid container lg={12} md={12} sm={12} xs={12}>
-                {alldata &&
-                    alldata.map((item, index) => (
+                {data &&
+                    data.map((item, index) => (
                         <Card
                             sx={{
                                 border: "1px solid",
@@ -120,8 +122,10 @@ const Email = () => {
                                         }}
                                     >
                                         <Avatar
-                                            // {...stringAvatar(`${item.details.from_email.name}`)}
-                                            {...stringAvatar(`${item.name}`)}
+                                            {...stringAvatar(
+                                                `${item.details.from_email.name}`
+                                            )}
+                                            // {...stringAvatar(`${item.name}`)}
                                             sx={{ bgcolor: indigo[800] }}
                                         />
                                     </Grid>
@@ -138,8 +142,8 @@ const Email = () => {
                                                 fontWeight: "700"
                                             }}
                                         >
-                                            {/* {item.details.from_email.name} */}
-                                            {item.name}
+                                            {item.details.from_email.name}
+                                            {/* {item.name} */}
                                         </Typography>
                                         <Stack
                                             direction="row"
@@ -159,8 +163,8 @@ const Email = () => {
                                                 }}
                                                 color="text.secondary"
                                             >
-                                                {/* {item.sent_date_time} */}
-                                                {item.date}
+                                                {item.sent_date_time}
+                                                {/* {item.date} */}
                                             </Typography>
                                         </Stack>
                                         <Typography variant="h8">
