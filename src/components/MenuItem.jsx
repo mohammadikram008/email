@@ -69,14 +69,22 @@ const MenuItem = () => {
                             pr: 0
                         }}
                     >
-                        <Box component={LabelIcon} color="inherit" />
+                        <Box
+                            component={LabelIcon}
+                            color="inherit"
+                            sx={{ p: 0.5 }}
+                        />
                         <Typography
                             variant="body2"
                             sx={{ fontWeight: "inherit", flexGrow: 1 }}
                         >
                             {labelText}
                         </Typography>
-                        <Typography variant="caption" color="inherit">
+                        <Typography
+                            variant="caption"
+                            color="inherit"
+                            sx={{ m: 1 }}
+                        >
                             {labelInfo}
                         </Typography>
                     </Box>
@@ -114,8 +122,8 @@ const MenuItem = () => {
                     p: 2,
                     border: "1px solid",
                     borderColor: "divider",
-                    justifyContent: "center",
-                    alignItems: "center"
+                    display: "flex",
+                    justifyContent: "center"
                 }}
                 style={{ height: "85vh", minWidth: "30%" }}
             >
@@ -130,6 +138,7 @@ const MenuItem = () => {
                     <Button
                         variant="outlined"
                         sx={{
+                            display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
                             minWidth: "100%"

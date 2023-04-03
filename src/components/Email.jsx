@@ -40,27 +40,27 @@ const Email = () => {
     // }, []);
     const alldata = [
         {
-            name: "ikram",
-            subject: "developer",
-            contain: "i am reatjs developer...",
+            name: "Bitpay",
+            subject: "Join KCGI To Earn Huge..",
+            contain: "Dear Global bitplayers,We are Delig...",
             date: "02/02/2023"
         },
         {
-            name: "ALi",
-            subject: "developer",
-            contain: "i am reatjs developer...",
+            name: "Mexi",
+            subject: "Experience futures tech...",
+            contain: "Dear Global bitplayers,We are Delig...",
             date: "02/02/2023"
         },
         {
-            name: "kmran",
-            subject: "developer",
-            contain: "i am reatjs developer...",
+            name: "Bitpay",
+            subject: "Join KCGI To Earn Huge..",
+            contain: "Dear Global bitplayers,We are Delig...",
             date: "02/02/2023"
         },
         {
-            name: "Zuhaib",
-            subject: "developer",
-            contain: "i am reatjs developer...",
+            name: "Mexi",
+            subject: "Experience futures tech...",
+            contain: "Dear Global bitplayers,We are Delig...",
             date: "02/02/2023"
         }
     ];
@@ -71,14 +71,18 @@ const Email = () => {
                 borderRadius: "4px",
                 border: "1px solid",
                 borderColor: "divider",
-                height: "85vh"
+                height: "90vh"
             }}
         >
-            <Box sx={{ display: "inline", p: 1 }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center"
+                }}
+            >
                 <Checkbox {...label} />
-                <ArrowDropDownIcon
-                    sx={{ justifyContent: "center", alignItems: "center" }}
-                />
+                <ArrowDropDownIcon />
                 <Divider />
             </Box>
             <Grid container lg={12} md={12} sm={12} xs={12}>
@@ -87,28 +91,52 @@ const Email = () => {
                         <Card
                             sx={{
                                 border: "1px solid",
+                                m: 0,
+                                p: 0,
+                                width: "100%",
+                                height: 80,
+                                borderRadius: "0",
                                 borderColor: "divider",
                                 ":hover": {
                                     bgcolor: indigo[100]
                                 }
                             }}
-                            style={{ width: "100%", height: 100 }}
                             sm={12}
                             lg={12}
                             onClick={handleClick}
                             key={index}
                         >
-                            <CardContent>
+                            <CardContent sx={{ p: 0, m: 1 }}>
                                 <Grid lg={12} container>
-                                    <Grid lg={2}>
+                                    <Grid
+                                        lg={2}
+                                        md={12}
+                                        sm={12}
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center"
+                                        }}
+                                    >
                                         <Avatar
                                             // {...stringAvatar(`${item.details.from_email.name}`)}
                                             {...stringAvatar(`${item.name}`)}
                                             sx={{ bgcolor: indigo[800] }}
                                         />
                                     </Grid>
-                                    <Grid lg={10}>
-                                        <Typography variant="h6">
+                                    <Grid
+                                        lg={10}
+                                        md={12}
+                                        sm={12}
+                                        sx={{ m: 0, p: 0 }}
+                                    >
+                                        <Typography
+                                            variant="h6"
+                                            sx={{
+                                                fontSize: "0.875rem",
+                                                fontWeight: "700"
+                                            }}
+                                        >
                                             {/* {item.details.from_email.name} */}
                                             {item.name}
                                         </Typography>
@@ -117,7 +145,8 @@ const Email = () => {
                                             spacing={2}
                                             sx={{
                                                 color: indigo[800],
-                                                justifyContent: "space-between"
+                                                justifyContent: "space-between",
+                                                fontSize: "0.875rem"
                                             }}
                                         >
                                             <Typography variant="body2">
@@ -125,7 +154,6 @@ const Email = () => {
                                             </Typography>
                                             <Typography
                                                 sx={{
-                                                    mb: 1.5,
                                                     color: indigo[800]
                                                 }}
                                                 color="text.secondary"

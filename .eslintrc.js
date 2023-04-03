@@ -20,7 +20,13 @@ module.exports = {
     rules: {
         "no-console": 1, // Means warning
         "prettier/prettier": 2,
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                endOfLine: "auto"
+            }
+        ]
         // "prettier/prettier": [
         //   "error",
 

@@ -10,6 +10,8 @@ import ShortcutOutlinedIcon from "@mui/icons-material/ShortcutOutlined";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 import Box from "@mui/material/Box";
+import TurnLeftSharpIcon from "@mui/icons-material/TurnLeftSharp";
+import TurnRightSharpIcon from "@mui/icons-material/TurnRightSharp";
 const ViewEmail = () => {
     function stringAvatar(name) {
         return {
@@ -17,7 +19,7 @@ const ViewEmail = () => {
         };
     }
     return (
-        <Box mt={1} sx={{ mr: 4 }} style={{ height: "80vh" }}>
+        <Box mt={1} sx={{ width: "95%", p: 0 }} style={{ height: "80vh" }}>
             <Box
                 sx={{
                     borderRadius: "4px",
@@ -79,17 +81,19 @@ const ViewEmail = () => {
                     </Grid>
                     <Box
                         sx={{
-                            p: 6,
-                            justifyContent: "center",
-                            alignItems: "center"
+                            display: "flex",
+                            justifyContent: "start",
+                            alignItems: "flex-start",
+                            flexDirection: "column",
+                            p: 5
                         }}
                     >
                         <Grid item lg={12}>
                             <Typography
                                 variant="h5"
                                 sx={{
-                                    fontSize: "0.875rem",
-                                    fontWeight: "700"
+                                    fontSize: "1rem",
+                                    fontWeight: "800"
                                 }}
                             >
                                 Dear Global Bitpayer
@@ -102,42 +106,42 @@ const ViewEmail = () => {
                             can create a variable and use the addition
                             assignment operator
                         </Grid>
-                        <Grid item lg={12} mt={2}>
+                        <Grid item lg={12} mt={3}>
                             <Typography
                                 variant="h6"
                                 component="div"
                                 sx={{
                                     fontSize: "0.875rem",
-                                    fontWeight: "700"
+                                    fontWeight: "600"
                                 }}
                             >
                                 Compaign Period:oct28,6PM-NOV-4,6PM(UTC+8)
                             </Typography>
                         </Grid>
-                        <Grid item lg={12} mt={2}>
+                        <Grid item lg={12} mt={3}>
                             <Typography
                                 variant="h6"
                                 component="div"
                                 sx={{
                                     fontSize: "0.875rem",
-                                    fontWeight: "700"
+                                    fontWeight: "600"
                                 }}
                             >
                                 Promotion A:Make first trade and share $10,000
                             </Typography>
                         </Grid>
-                        <Grid item lg={12} mt={2}>
+                        <Grid item lg={12} mt={1}>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Nisi vel rem ducimus asperiores cum! Rerum,
                             tempora
                         </Grid>
-                        <Grid item lg={12} mt={2}>
+                        <Grid item lg={12} mt={3}>
                             <Typography
                                 variant="h6"
                                 component="div"
                                 sx={{
                                     fontSize: "0.875rem",
-                                    fontWeight: "700"
+                                    fontWeight: "600"
                                 }}
                             >
                                 To participate in this promotions A,please click
@@ -145,23 +149,26 @@ const ViewEmail = () => {
                             </Typography>
                         </Grid>
                     </Box>
-                    <Grid item lg={12} mb={2} container>
-                        <Grid lg={1}></Grid>
-                        <Grid lg={7} sx={{ m: 1 }}>
+                    <Grid item lg={12} mb={4} container>
+                        {/* <Grid lg={1}></Grid> */}
+                        <Grid lg={8} sx={{ m: 1 }}>
                             <Button
                                 variant="outlined"
                                 color="inherit"
                                 sx={{ borderRadius: 10, color: grey, m: 1 }}
                             >
                                 {" "}
-                                <ReplyIcon /> Reply
+                                {/* <ReplyIcon /> */}
+                                <TurnLeftSharpIcon />
+                                Reply
                             </Button>
                             <Button
                                 variant="outlined"
                                 color="inherit"
                                 sx={{ borderRadius: 10, color: grey }}
                             >
-                                <ShortcutOutlinedIcon />
+                                {/* <ShortcutOutlinedIcon /> */}
+                                <TurnRightSharpIcon />
                                 Forword
                             </Button>
                         </Grid>
