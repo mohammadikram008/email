@@ -13,7 +13,7 @@ import Box from "@mui/material/Box";
 import TurnLeftSharpIcon from "@mui/icons-material/TurnLeftSharp";
 import TurnRightSharpIcon from "@mui/icons-material/TurnRightSharp";
 import BottomNavigation from "@mui/material/BottomNavigation";
-const ViewEmail = () => {
+const ViewEmail = ({ content }) => {
     function stringAvatar(name) {
         return {
             children: `${name.split(" ")[0][0]}`
@@ -66,7 +66,7 @@ const ViewEmail = () => {
                             >
                                 <Stack direction="column">
                                     <Typography variant="h8">
-                                        ikram notificationpromo.bitpay.com
+                                        {content && JSON.stringify(content)}
                                     </Typography>
                                     <Typography variant="body2">
                                         To:umer@pullstream.com

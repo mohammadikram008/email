@@ -13,26 +13,18 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Paper from "@mui/material/Paper";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ViewEmail from "./ViewEmail";
-const Email = () => {
+
+const Email = ({ setContent }) => {
     const [data, setData] = useState([]);
     const [singledata, setSingledata] = useState([]);
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
     const token =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwNjA4MjE1LCJpYXQiOjE2ODA1MTQyODAsImp0aSI6IjkxZjQ3YTA3MDQwYzRmZTE5ZjZjZWI3OGVhMTQ2NjkwIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.gEY2TTPtF0AxLC7kuTPIA_6iyNJDhjz-2wXkhyca3ZA";
     const header = {
         headers: {
             Authorization: `Bearer ${token}`
         }
-    };
-    function stringAvatar(name) {
-        return {
-            children: `${name.split(" ")[0][0]}`
-        };
-    }
-    const handleClick = (prop) => {
-        console.log("prop", prop);
-        setSingledata(prop);
     };
     useEffect(() => {
         axios
@@ -45,6 +37,16 @@ const Email = () => {
                 console.log("Error", error);
             });
     }, []);
+
+    function stringAvatar(name) {
+        return {
+            children: `${name.split(" ")[0][0]}`
+        };
+    }
+    const handleClick = (prop) => {
+        console.log("prop", prop);
+        setContent(prop);
+    };
     // const alldata = [
     //     {
     //         name: "Bitpay",
@@ -93,7 +95,13 @@ const Email = () => {
                 <Divider />
             </Box>
             <Grid container lg={12} md={12} sm={12} xs={12}>
-                <Paper sx={{ height: "85vh", overflow: "scroll", overflowX: "hidden" }}>
+                <Paper
+                    sx={{
+                        height: "85vh",
+                        overflow: "scroll",
+                        overflowX: "hidden"
+                    }}
+                >
                     <List>
                         {data &&
                             data.map((item, index) => (
@@ -132,8 +140,10 @@ const Email = () => {
                                                     {...stringAvatar(
                                                         `${item.details.from_email.name}`
                                                     )}
-                                                    sx={{ bgcolor: indigo[800] }}
-                                                // {...stringAvatar(`${item.name}`)}
+                                                    sx={{
+                                                        bgcolor: indigo[800]
+                                                    }}
+                                                    // {...stringAvatar(`${item.name}`)}
                                                 />
                                             </Grid>
                                             <Grid
@@ -149,7 +159,10 @@ const Email = () => {
                                                         fontWeight: "700"
                                                     }}
                                                 >
-                                                    {item.details.from_email.name}
+                                                    {
+                                                        item.details.from_email
+                                                            .name
+                                                    }
                                                     {/* {item.name} */}
                                                 </Typography>
                                                 <Stack
@@ -157,7 +170,8 @@ const Email = () => {
                                                     spacing={2}
                                                     sx={{
                                                         color: indigo[800],
-                                                        justifyContent: "space-between",
+                                                        justifyContent:
+                                                            "space-between",
                                                         fontSize: "0.875rem"
                                                     }}
                                                 >
