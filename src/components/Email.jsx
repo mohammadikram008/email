@@ -20,7 +20,7 @@ const Email = ({ setContent }) => {
     const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
     const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwNjA4MjE1LCJpYXQiOjE2ODA1MTQyODAsImp0aSI6IjkxZjQ3YTA3MDQwYzRmZTE5ZjZjZWI3OGVhMTQ2NjkwIiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.gEY2TTPtF0AxLC7kuTPIA_6iyNJDhjz-2wXkhyca3ZA";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwNzExNjE0LCJpYXQiOjE2ODA2MjUyMTIsImp0aSI6Ijk4OTYwY2Y5MTcyZDQ1MTZhMTg3NDM5ZmE2OTE2ODA4IiwidXNlcl9pZCI6IjZjN2IzY2ExLThjMzItNDc4Ny04MTc5LTBjMDYzNWQ2NzQyMiJ9.O8Tx9w9q3DdxWVCQPvNRfwbzzqQTDgyXhqkjn1zDC-8";
     const header = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -28,7 +28,10 @@ const Email = ({ setContent }) => {
     };
     useEffect(() => {
         axios
-            .get(`https://sandbox.notification.pullstream.com/api/`, header)
+            .get(
+                `https://sandbox.notification.pullstream.com/api/email-templates`,
+                header
+            )
             .then((res) => {
                 console.log("ResDATA", res.data.results);
                 setData(res.data.results);
@@ -138,7 +141,7 @@ const Email = ({ setContent }) => {
                                             >
                                                 <Avatar
                                                     {...stringAvatar(
-                                                        `${item.details.from_email.name}`
+                                                        `${item.details.from_email.display_name}`
                                                     )}
                                                     sx={{
                                                         bgcolor: indigo[800]
@@ -161,7 +164,7 @@ const Email = ({ setContent }) => {
                                                 >
                                                     {
                                                         item.details.from_email
-                                                            .name
+                                                            .display_name
                                                     }
                                                     {/* {item.name} */}
                                                 </Typography>
@@ -184,12 +187,12 @@ const Email = ({ setContent }) => {
                                                         }}
                                                         color="text.secondary"
                                                     >
-                                                        {item.sent_date_time}
+                                                        {item.created_at}
                                                         {/* {item.date} */}
                                                     </Typography>
                                                 </Stack>
                                                 <Typography variant="h8">
-                                                    {item.contain}
+                                                    {item.description}
                                                 </Typography>
                                             </Grid>
                                         </Grid>

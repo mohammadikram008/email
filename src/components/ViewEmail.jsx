@@ -66,10 +66,18 @@ const ViewEmail = ({ content }) => {
                             >
                                 <Stack direction="column">
                                     <Typography variant="h8">
-                                        {content && JSON.stringify(content)}
+                                        {content &&
+                                            JSON.stringify(
+                                                content.details.from_email
+                                                    .username
+                                            )}
                                     </Typography>
                                     <Typography variant="body2">
-                                        To:umer@pullstream.com
+                                        To:
+                                        {content &&
+                                            JSON.stringify(
+                                                content.from_email_alias
+                                            )}
                                     </Typography>
                                 </Stack>
                                 <Stack>
